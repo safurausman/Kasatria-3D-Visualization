@@ -17,7 +17,7 @@ Users can explore the dataset through four different 3D layouts:
 
 - Table
 - Sphere
-- Double Helix
+- Helix
 - Grid
 
 The application also provides:
