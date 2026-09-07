@@ -408,7 +408,7 @@ The implementation addresses the requirements specified in the Kasatria Software
 | 7 | Table arrangement: 20 × 10 | Completed |
 | 8 | Double Helix instead of the default single Helix | Completed |
 | 9 | Grid arrangement: 5 × 4 × 10 | Completed |
-| 10 | Provide webpage URL | Pending deployment |
+| 10 | Provide webpage URL | Completed |
 
 ---
 
