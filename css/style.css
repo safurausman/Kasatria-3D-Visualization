@@ -1,0 +1,453 @@
+:root {
+    --panel: rgba(8, 15, 28, 0.88);
+    --border: rgba(255, 255, 255, 0.14);
+    --muted: #94a3b8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #f8fafc;
+    background: #020617;
+}
+
+#container {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+/* Header */
+#app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 92px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.98),
+        rgba(2, 6, 23, 0.72),
+        transparent
+    );
+}
+
+#brand {
+    pointer-events: auto;
+}
+
+#brand .eyebrow {
+    margin-bottom: 4px;
+    color: #60a5fa;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+}
+
+#brand h1 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+#brand p {
+    margin: 5px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+#google-login {
+    pointer-events: auto;
+    min-width: 210px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Controls */
+#controls {
+    position: fixed;
+    top: 112px;
+    left: 24px;
+    z-index: 1000;
+    width: 190px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--panel);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
+    pointer-events: auto;
+}
+
+#controls .panel-title {
+    margin: 0 4px 5px;
+    color: #f8fafc;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+#controls .panel-subtitle {
+    margin: -1px 4px 7px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+#controls button {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #cbd5e1;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+#controls button:hover {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #fff;
+    transform: translateX(2px);
+}
+
+/* Legend */
+#legend {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    z-index: 1000;
+    min-width: 245px;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--panel);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+#legend-title {
+    margin-bottom: 9px;
+    color: #e2e8f0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.legend-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    color: #cbd5e1;
+    font-size: 11px;
+}
+
+.legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.legend-red { background: #ef4444; }
+.legend-orange { background: #f59e0b; }
+.legend-green { background: #22c55e; }
+
+#interaction-hint {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1000;
+    padding: 9px 12px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 10px;
+    background: rgba(10,15,24,.70);
+    color: #94a3b8;
+    font-size: 10px;
+    pointer-events: none;
+}
+
+/* Cards */
+.tile {
+    width: 120px;
+    height: 160px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    background: rgba(30, 30, 30, 0.95);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.tile:hover {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.tile .number {
+    font-size: 11px;
+    margin-top: 10px;
+    opacity: 0.75;
+}
+
+.tile .name {
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: bold;
+    margin: 14px 5px 0;
+}
+
+.tile .net-worth {
+    display: inline-block;
+    font-size: 12px;
+    margin-top: 12px;
+    padding: 4px 7px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.22);
+}
+
+.tile .email {
+    font-size: 10px;
+    margin: 12px 5px 0;
+    word-break: break-word;
+    opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+    #app-header {
+        height: 76px;
+        padding: 0 14px;
+    }
+
+    #brand h1 {
+        font-size: 18px;
+    }
+
+    #brand p {
+        display: none;
+    }
+
+    #google-login {
+        min-width: 160px;
+        transform: scale(.9);
+        transform-origin: right center;
+    }
+
+    #controls {
+        top: 92px;
+        left: 12px;
+        width: 160px;
+    }
+
+    #legend {
+        left: 12px;
+        bottom: 12px;
+        min-width: 205px;
+    }
+
+    #interaction-hint {
+        display: none;
+    }
+}
+
+#statsPanel {
+    display: none;
+}
+
+#searchPanel {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+#searchInput {
+    width: 240px;
+    padding: 12px 16px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    background: rgba(10, 15, 30, 0.9);
+    color: white;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+#searchInput::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+#searchInput:focus {
+    border-color: rgba(255,255,255,0.6);
+}
+
+.person-details {
+    position: fixed;
+    top: 140px;
+    right: 30px;
+    width: 280px;
+    padding: 22px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    background: rgba(8, 15, 30, 0.96);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    color: white;
+    z-index: 2000;
+    box-sizing: border-box;
+    display: none;
+    backdrop-filter: blur(12px);
+}
+
+.details-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #8da2c5;
+    margin-bottom: 12px;
+}
+
+.detail-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.detail-photo {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #111827;
+    display: block;
+    margin-bottom: 18px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 14px;
+}
+
+.detail-row span {
+    color: #8da2c5;
+}
+
+.detail-row strong {
+    text-align: right;
+    color: white;
+}
+
+.close-details {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    color: #9aa8bd;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-details:hover {
+    color: white;
+}
+
+#loginScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 70px;
+    box-sizing: border-box;
+}
+
+.loginCard {
+    width: 100%;
+    text-align: center;
+}
+
+.loginCard > h1 {
+    margin: 0 0 40px;
+    color: #111111;
+    font-size: 42px;
+    font-weight: 500;
+}
+
+.loginBox {
+    width: 430px;
+    min-height: 280px;
+    margin: 0 auto;
+    padding: 55px 40px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.loginBox h2 {
+    margin: 0 0 15px;
+    color: #333333;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.loginBox p {
+    margin: 0 auto 30px;
+    max-width: 320px;
+    color: #777777;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+#google-login {
+    display: flex;
+    justify-content: center;
+}
+/* Hide unused statistics panel */
+#statsPanel {
+    display: none !important;
+}
+

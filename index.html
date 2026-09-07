@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kasatria 3D Visualization</title>
+    
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+
+<body>
+   <div id="loginScreen">
+    <div class="loginCard">
+
+        <h1>Sign In With Google</h1>
+
+        <div class="loginBox">
+            <h2>Welcome Back</h2>
+
+            <p>Sign in to explore the Kasatria 3D Visualization</p>
+
+            <div id="google-login"></div>
+        </div>
+
+    </div>
+</div>
+
+<header id="app-header">
+    <div id="brand">
+        <div class="eyebrow">Kasatria</div>
+        <h1>3D Visualization</h1>
+        <p>Explore people, countries and net worth in 3D</p>
+    </div>
+</header>
+
+<div id="container"></div>
+
+    <div id="controls">
+        <div class="panel-title">View Layout</div>
+        <div class="panel-subtitle">Choose a 3D arrangement</div>
+        <button id="tableBtn">▦ &nbsp; Table</button>
+        <button id="sphereBtn">◉ &nbsp; Sphere</button>
+        <button id="helixBtn">⟲ &nbsp; Helix</button>
+        <button id="gridBtn">▦ &nbsp; Grid</button>
+    </div>
+
+    <div id="searchPanel">
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Search by name or country..."
+        autocomplete="off"
+    >
+    </div>
+
+    <div id="personDetails" class="person-details">
+        
+    <button id="closeDetails" class="close-details">×</button>
+
+    <div class="details-title">PERSON DETAILS</div>
+    <img id="detailPhoto" class="detail-photo" src="" alt="Person Photo">
+    <div id="detailName" class="detail-name">-</div>
+    
+    <div class="detail-row">
+        <span>Age</span>
+        <strong id="detailAge">-</strong>
+    </div>
+
+    <div class="detail-row">
+        <span>Country</span>
+        <strong id="detailCountry">-</strong>
+    </div>
+
+    <div class="detail-row">
+        <span>Interest</span>
+        <strong id="detailInterest">-</strong>
+    </div>
+
+    <div class="detail-row">
+        <span>Net Worth</span>
+        <strong id="detailNetWorth">-</strong>
+    </div>
+</div>
+
+<div id="statsPanel">
+    <div class="stat-card">
+        <span class="stat-value" id="totalPeople">0</span>
+        <span class="stat-label">PEOPLE</span>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-value" id="totalCountries">0</span>
+        <span class="stat-label">COUNTRIES</span>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-value" id="averageNetWorth">$0</span>
+        <span class="stat-label">AVG NET WORTH</span>
+    </div>
+</div>
+
+    <div id="legend">
+        <div id="legend-title">Net Worth</div>
+        <div class="legend-row">
+            <span class="legend-dot legend-red"></span>
+            <span>Under $100K</span>
+        </div>
+        <div class="legend-row">
+            <span class="legend-dot legend-orange"></span>
+            <span>$100K – $200K</span>
+        </div>
+        <div class="legend-row">
+            <span class="legend-dot legend-green"></span>
+            <span>Over $200K</span>
+        </div>
+    </div>
+
+    <div id="interaction-hint">Drag to rotate · Scroll to zoom</div>
+
+    <!-- Three.js -->
+
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/"
+    }
+}
+</script>
+  
+    <script type="module" src="./js/app.js"></script>
+
+</body>
+</html>
